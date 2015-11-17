@@ -1,0 +1,161 @@
+1. 마방진(magic square)
+
+import operator, random, sys, time, math  
+from math import* 
+import string  
+square = []  
+def userinput():
+  
+     return input('enter a value for n: ')  
+    
+ def isvalid(n): 
+     if n == 0 :  
+         print 'invalid arguments for magic square' 
+
+         return 0 
+
+     elif n==2:  
+         print 'invalid arguments for magic square' 
+         return 0 
+
+     elif n>3:  
+         print 'warning: n is greater than 3 so it will take a long time to compute' 
+         return 1 
+
+     else:  
+         return 1 
+    
+ def thesquare(n): 
+     for i in range(n):  
+         square.append([])  
+         for j in range(n):  
+             square[i].append(0)  
+             return square  
+    
+ def thesum(n):   
+     s = (n*(n*n + 1))/2 
+     return s  
+    
+ def allpossiblevals(n):   
+     vals = range(1, (n*n)+1, 1)  
+     return vals  
+    
+ def allpermutations(vals): 
+     length = len(vals)  
+     if length <= 1:  
+
+         yield vals  
+     else:  
+         for permut in allpermutations(vals[1:]):  
+             for i in range(len(permut)+1):  
+                 yield permut[:i]+vals[0:1]+permut[i:]  
+    
+ def perm():   
+     n = userinput()  
+     v = isvalid(n)  
+     if v == 1:  
+         squares = thesquare(n)  
+  square[i].append(0)  
+             return square  
+    
+ def thesum(n):  
+     s = (n*(n*n + 1))/2 
+     return s  
+    
+ def allpossiblevals(n): 
+     vals = range(1, (n*n)+1, 1)  
+     return vals  
+    
+ def allpermutations(vals):   
+     length = len(vals)  
+     if length <= 1:  
+         yield vals  
+     else:  
+         for permut in allpermutations(vals[1:]):  
+             for i in range(len(permut)+1):  
+                 yield permut[:i]+vals[0:1]+permut[i:]  
+    
+ def perm():   
+     n = userinput()  
+     v = isvalid(n)  
+     if v == 1:  
+         squares = thesquare(n)  
+         a = allpossiblevals(n)  
+         b = allpermutations(a)  
+         c = list(B)/>  
+         psize = len(c)  
+         total = thesum(n)  
+         for i in range(psize):  
+             count = 0 
+         for j in range(n):  
+             for k in range(n):  
+                     squares[j][k] = c[i].pop()  
+                     for l in range(n):  
+                         if sum(square[l]) == total:  
+                             count = count + 1 
+                             transpose = zip(*square)  
+                             for m in range(n):  
+                                 if sum((transpose)[m]) == total:  
+                                     count = count + 1 
+                                     if count == n+n:  
+                                         print' square' 
+
+
+2. bubble sort
+
+mylist = [12, 5, 13, 8, 9, 65]
+
+def bubble(badList):
+    length = len(badList) - 1
+    unsorted = True
+
+    while unsorted:
+    	for element in range(0,length):
+		    unsorted = False
+		    if badList[element] > badList[element + 1]:
+			    hold = badList[element + 1]
+			    badList[element + 1] = badList[element]
+			    badList[element] = hold
+			    print badList
+		    else:
+			    unsorted = True
+
+print bubble(mylist)
+
+
+3. import random    
+
+    rn = ["0", "0", "0"]
+    rn[0] = str(random.randrange(1, 9, 1))
+    rn[1] = rn[0]
+    rn[2] = rn[0]
+    while (rn[0] == rn[1]):
+        rn[1] = str(random.randrange(1, 9, 1))
+    while (rn[0] == rn[2] or rn[1] == rn[2]):
+        rn[2] = str(random.randrange(1, 9, 1))
+
+    #print(rn)
+
+    t_cnt = 0
+    s_cnt = 0 
+    b_cnt = 0 
+
+    print("GAME START")
+    print("---------------------------")
+    while ( s_cnt < 3 ):
+
+        num = str(input("숫자 3자리를 입력하세요 : "))
+
+        s_cnt = 0
+        b_cnt = 0
+
+        for i in range(0, 3):
+            for j in range(0, 3):
+                if(num[i] == str(rn[j]) and i == j):
+                    s_cnt += 1
+                elif(num[i] == str(rn[j]) and i != j):
+                    b_cnt += 1
+        print("결과 : [", s_cnt, "] Strike [", b_cnt, "] Ball")
+        t_cnt += 1
+    print("FINISH")
+    print(t_cnt, "번 만에 정답을 맞추셨습니다.")
